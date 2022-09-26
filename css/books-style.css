@@ -1,0 +1,27 @@
+.wrap-form-add, .wrap-form-search {
+    background-color: #FFB200;
+    border-radius: 8px;
+    box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
+}
+
+.wrap-form-search {
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+}
+
+h2:hover {
+    cursor: default;
+    color: #2c2c2c;
+}
+
+.wrap-display {
+    background-color: #FFF4CF;
+    border-radius: 8px;
+    color: #2c2c2c;
+    box-shadow: -1px 0px 13px 1px rgba(0,0,0,0.75);
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Books App</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="css/books-style.css" />
+  </head>
+  <body>
+    <header>
+      <div
+        class="container-fluid bg-primary text-center p-4 fw-bold display-5 text-white"
+      >
+        Books App
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid mt-3 p-3">
+        <!-- Content Form -->
+        <section class="p-2">
+          <div class="row d-flex gap-4 justify-content-between">
+            <!-- Form Masukkan Buku Baru -->
+            <div class="col-lg-7 wrap-form-add">
+              <div class="m-2 p-2 text-center">
+                <h2 class="fs-2 fw-bold text-decoration-underline">
+                  Masukkan Buku Baru
+                </h2>
+              </div>
+              <form id="inputBook">
+                <div class="m-2 p-2">
+                  <label for="inputBookTitle" class="fw-semibold ms-1"
+                    >Judul</label
+                  >
+                  <input
+                    type="text"
+                    id="inputBookTitle"
+                    class="d-block w-100 mt-1 form-control"
+                    required
+                  />
+                </div>
+                <div class="m-2 p-2">
+                  <label for="inputBookAuthor" class="fw-semibold ms-1"
+                    >Penulis</label
+                  >
+                  <input
+                    type="text"
+                    id="inputBookAuthor"
+                    class="d-block w-100 mt-1 form-control"
+                    required
+                  />
+                </div>
+                <div class="m-2 p-2">
+                  <label for="inputBookYear" class="fw-semibold ms-1"
+                    >Tahun</label
+                  >
+                  <input
+                    type="number"
+                    id="inputBookYear"
+                    class="d-block w-100 mt-1 form-control"
+                    required
+                  />
+                </div>
+                <div class="mx-2 mb-4 px-2 d-flex">
+                  <label for="inputBookIsComplete">Selesai dibaca</label>
+                  <input
+                    type="checkbox"
+                    id="inputBookIsComplete"
+                    class="ms-2 mt-1"
+                  />
+                </div>
+                <div class="mx-2 mb-4 px-5 d-flex justify-content-center">
+                  <button
+                    id="bookSubmit"
+                    type="submit"
+                    class="btn btn-primary w-100"
+                  >
+                    Masukkan buku ke dalam list
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- End Form Masukkan Buku Baru -->
+
+            <!-- Form Cari Buku -->
+            <div class="col wrap-form-search justify-content-center">
+              <div class="mx-2 mt-2 p-2 text-center">
+                <h2 class="fs-2 fw-bold text-decoration-underline">
+                  Cari Buku
+                </h2>
+              </div>
+              <form id="searchBook">
+                <div class="mx-2 p-2">
+                  <label for="searchBookTitle" class="fw-semibold ms-1"
+                    >Judul Buku</label
+                  >
+                  <input
+                    type="text"
+                    id="searchBookTitle"
+                    class="d-block mt-1 mb-4 w-100 form-control"
+                    placeholder="Search for..."
+                    onkeyup="search()"
+                  />
+                </div>
+              </form>
+            </div>
+            <!-- End Form Cari Buku -->
+          </div>
+        </section>
+        <!-- End Content Form -->
+
+        <!-- Display incompleteBookshelfList -->
+        <section class="p-4 my-4 wrap-display">
+          <h2 class="fw-semibold">Belum Selesai Dibaca</h2>
+          <div class="m-2 list" id="incompleteBookshelfList"></div>
+        </section>
+        <!-- End Display -->
+
+        <!-- Display completeBookshelfList -->
+        <section class="p-4 my-4 wrap-display">
+          <h2 class="fw-semibold">Selesai Dibaca</h2>
+          <div class="m-2 list" id="completeBookshelfList"></div>
+        </section>
+        <!-- End Display -->
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Apakah kamu yakin menghapus buku ini ?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmToDelete">
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/books-app.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
